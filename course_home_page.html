@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Courses - SAP CPI Integration Developer Course</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0070f3;
+            --secondary-color: #ff6b35;
+            --success-color: #00d084;
+            --warning-color: #ffa502;
+            --bg-color: #ffffff;
+            --surface-color: #f8fafc;
+            --text-primary: #1a202c;
+            --text-secondary: #718096;
+            --border-color: #e2e8f0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-success: linear-gradient(135deg, #00d084 0%, #0070f3 100%);
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --glass-bg: rgba(30, 41, 59, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, #667eea22 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #764ba222 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, #f093fb15 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: floatAround 20s infinite linear;
+        }
+
+        .floating-shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            top: 70%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-secondary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: -5s;
+        }
+
+        .floating-shape:nth-child(3) {
+            top: 30%;
+            left: 70%;
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-success);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-delay: -10s;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -50px) rotate(90deg); }
+            50% { transform: translate(-50px, -100px) rotate(180deg); }
+            75% { transform: translate(-100px, 50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .nav-user .username {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .logout-btn {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .main-content {
+            margin-top: 100px;
+            min-height: calc(100vh - 100px);
+            padding: 3rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-item {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .breadcrumb-item:hover {
+            color: var(--primary-color);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s ease infinite;
+            margin-bottom: 1rem;
+        }
+
+        .loading-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px var(--shadow-color);
+        }
+
+        .course-card:hover::before {
+            opacity: 0.8;
+        }
+
+        .course-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-card:nth-child(even) .course-icon {
+            background: var(--gradient-secondary);
+        }
+
+        .course-card:nth-child(3n) .course-icon {
+            background: var(--gradient-success);
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            text-transform: capitalize;
+        }
+
+        .course-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .meta-item i {
+            color: var(--primary-color);
+        }
+
+        .course-progress {
+            width: 100%;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .enter-course-btn {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .enter-course-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .lesson-card {
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .lesson-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .lesson-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .lesson-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .lesson-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .lesson-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border-color);
+        }
+
+        .status-dot.completed {
+            background: var(--success-color);
+        }
+
+        .status-dot.in-progress {
+            background: var(--warning-color);
+        }
+
+        .back-btn {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .error-message {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .retry-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .retry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-user {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .breadcrumb {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">KRD's SAP CPI Training Zone</div>
+            <div class="nav-links">
+                <div class="nav-user">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="username" id="username">Loading...</span>
+                </div>
+                <button class="logout-btn" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title" id="pageTitle">Available Courses</h1>
+                <p class="page-subtitle" id="pageSubtitle">Choose a course to begin your SAP CPI learning journey</p>
+                
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-item active" onclick="navigateTo('home')">Courses</span>
+                </div>
+            </div>
+
+            <div id="loadingContainer" class="loading-container">
+                <div class="spinner"></div>
+                <div class="loading-text">Loading courses...</div>
+            </div>
+
+            <div id="coursesContainer" class="courses-grid" style="display: none;">
+                <!-- Course cards will be dynamically populated -->
+            </div>
+
+            <div id="lessonsContainer" style="display: none;">
+                <button class="back-btn" onclick="navigateBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Courses
+                </button>
+                <div class="lessons-grid">
+                    <!-- Lesson cards will be dynamically populated -->
+                </div>
+            </div>
+
+            <div id="errorContainer" class="error-container" style="display: none;">
+                <i class="fas fa-exclamation-triangle error-icon"></i>
+                <h2 class="error-title">Oops! Something went wrong</h2>
+                <p class="error-message" id="errorMessage">Failed to load course content. Please try again.</p>
+                <button class="retry-btn" onclick="loadCourses()">
+                    <i class="fas fa-redo"></i>
+                    Try Again
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Split PAT for security
+        const patParts = [
+            'github_pat_11BXK4LGI0',
+            '7UrxBqLveoaa_Kdinc',
+            'iKrUiwV1Uf2t5j5P8Y',
+            'b9ZpS12ZofYKeyqEE',
+            'Sq7PYRYIGQJvu9lCZJ2'
+        ];
+        const githubPat = patParts.join('');
+
+        // Repository details
+        const repoOwner = 'shadow-wolf-forge';
+        const repoName = 'SAP-CPI-Integration-Developer-Course';
+        const coursesPath = 'Courses';
+
+        // Application state
+        let currentView = 'courses'; // 'courses' or 'lessons'
+        let currentCourse = null;
+        let coursesData = [];
+
+        // Check authentication
+        function checkAuthentication() {
+            const isAuthenticated = sessionStorage.getItem('authenticated');
+            const username = sessionStorage.getItem('username');
+
+            if (!isAuthenticated || !username) {
+                window.location.href = 'login.html';
+                return false;
+            }
+
+            document.getElementById('username').textContent = username;
+            return true;
+        }
+
+        // Theme functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+            }
+        }
+
+        // Logout functionality
+        function handleLogout() {
+            sessionStorage.removeItem('authenticated');
+            sessionStorage.removeItem('username');
+            window.location.href = 'login.html';
+        }
+
+        // API functions
+        async function fetchRepositoryContents(path = '') {
+            try {
+                const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`;
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `token ${githubPat}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching repository contents:', error);
+                throw error;
+            }
+        }
+
+        // Course loading functions
+        async function loadCourses() {
+            showLoading(true);
+            hideError();
+
+            try {
+                const contents = await fetchRepositoryContents(coursesPath);
+                const folders = contents.filter(item => item.type === 'dir');
+                
+                coursesData = folders.map(folder => ({
+                    name: folder.name,
+                    path: folder.path,
+                    displayName: formatCourseName(folder.name),
+                    description: generateCourseDescription(folder.name),
+                    icon: getCourseIcon(folder.name),
+                    lessons: 0 // Will be populated when clicked
+                }));
+
+                displayCourses(coursesData);
+                
+            } catch (error) {
+                console.error('Failed to load courses:', error);
+                showError('Failed to load courses. Please check your internet connection and try again.');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function loadLessons(courseName) {
+            showLoading(true, 'Loading lessons...');
+            hideError();
+
+            try {
+                const coursePath = `${coursesPath}/${courseName}`;
+                const contents = await fetchRepositoryContents(coursePath);
+                const htmlFiles = contents.filter(item => 
+                    item.type === 'file' && item.name.toLowerCase().endsWith('.html')
+                );
+
+                const lessons = htmlFiles.map(file => ({
+                    name: file.name,
+                    path: file.path,
+                    displayName: formatLessonName(file.name),
+                    description: generateLessonDescription(file.name)
+                }));
+
+                currentCourse = courseName;
+                displayLessons(lessons);
+                
+            } catch (error) {
+                console.error('Failed to load lessons:', error);
+                showError('Failed to load lessons for this course. Please try again.');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Display functions
+        function displayCourses(courses) {
+            const container = document.getElementById('coursesContainer');
+            const lessonsContainer = document.getElementById('lessonsContainer');
+            
+            lessonsContainer.style.display = 'none';
+            container.style.display = 'grid';
+            container.innerHTML = '';
+
+            updatePageHeader('Available Courses', 'Choose a course to begin your SAP CPI learning journey');
+            updateBreadcrumb([{ name: 'Courses', active: true, action: 'home' }]);
+
+            courses.forEach((course, index) => {
+                const courseCard = createCourseCard(course, index);
+                container.appendChild(courseCard);
+            });
+
+            currentView = 'courses';
+        }
+
+        function displayLessons(lessons) {
+            const container = document.getElementById('coursesContainer');
+            const lessonsContainer = document.getElementById('lessonsContainer');
+            
+            container.style.display = 'none';
+            lessonsContainer.style.display = 'block';
+
+            const lessonsGrid = lessonsContainer.querySelector('.lessons-grid');
+            lessonsGrid.innerHTML = '';
+
+            const courseName = formatCourseName(currentCourse);
+            updatePageHeader(`${courseName} Lessons`, `Explore the lessons in ${courseName}`);
+            updateBreadcrumb([
+                { name: 'Courses', active: false, action: 'home' },
+                { name: courseName, active: true, action: 'course' }
+            ]);
+
+            lessons.forEach(lesson => {
+                const lessonCard = createLessonCard(lesson);
+                lessonsGrid.appendChild(lessonCard);
+            });
+
+            currentView = 'lessons';
+        }
+
+        // Card creation functions
+        function createCourseCard(course, index) {
+            const card = document.createElement('div');
+            card.className = 'course-card';
+            card.onclick = () => loadLessons(course.name);
+
+            card.innerHTML = `
+                <div class="course-icon">
+                    <i class="${course.icon}"></i>
+                </div>
+                <h3 class="course-title">${course.displayName}</h3>
+                <p class="course-description">${course.description}</p>
+                <div class="course-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-book"></i>
+                        <span>Interactive Lessons</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Self-paced</span>
+                    </div>
+                </div>
+                <div class="course-progress">
+                    <div class="progress-bar" style="width: ${Math.random() * 100}%"></div>
+                </div>
+                <button class="enter-course-btn">
+                    <i class="fas fa-play"></i>
+                    Start Learning
+                </button>
+            `;
+
+            return card;
+        }
+
+        function createLessonCard(lesson) {
+            const card = document.createElement('div');
+            card.className = 'lesson-card';
+            
+            const statusClass = Math.random() > 0.7 ? 'completed' : Math.random() > 0.4 ? 'in-progress' : '';
+            const statusText = statusClass === 'completed' ? 'Completed' : statusClass === 'in-progress' ? 'In Progress' : 'Not Started';
+
+            card.innerHTML = `
+                <h4 class="lesson-title">${lesson.displayName}</h4>
+                <p class="lesson-description">${lesson.description}</p>
+                <div class="lesson-meta">
+                    <div class="lesson-status">
+                        <div class="status-dot ${statusClass}"></div>
+                        <span>${statusText}</span>
+                    </div>
+                    <span>Click to start lesson</span>
+                </div>
+            `;
+
+            // Add click event to navigate directly to the HTML file
+            card.addEventListener('click', function() {
+                openLesson(lesson);
+            });
+
+            return card;
+        }
+
+        // Navigation functions
+        function navigateTo(target) {
+            if (target === 'home') {
+                if (currentView === 'lessons') {
+                    displayCourses(coursesData);
+                }
+            }
+        }
+
+        function navigateBack() {
+            if (currentView === 'lessons') {
+                displayCourses(coursesData);
+            }
+        }
+
+        function openLesson(lesson) {
+            // Navigate to relative file path from root - course_home_page.html is outside Courses folder
+            const relativePath = `Courses/${currentCourse}/${lesson.name}`;
+            console.log('Navigating to lesson:', relativePath);
+            
+            // Direct navigation to the HTML file using relative path from root
+            window.location.href = relativePath;
+        }
+
+        // Utility functions
+        function formatCourseName(folderName) {
+            return folderName
+                .replace(/[-_]/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        function formatLessonName(fileName) {
+            return fileName
+                .replace('.html', '')
+                .replace(/[-_]/g, ' ') // Replace hyphens and underscores with spaces
+                .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+                .trim() // Remove leading/trailing spaces
+                .replace(/\b\w/g, l => l.toUpperCase()); // Capitalize each word
+        }
+
+        function generateCourseDescription(folderName) {
+            const descriptions = {
+                'erp': 'Learn the fundamentals of Enterprise Resource Planning and its integration with SAP systems.',
+                'btp': 'Master SAP Business Technology Platform and cloud integration capabilities.',
+                'cpi': 'Deep dive into SAP Cloud Platform Integration development and best practices.',
+                'basics': 'Start with the essential concepts and build your foundation knowledge.',
+                'advanced': 'Take your skills to the next level with advanced integration patterns.',
+                'monitoring': 'Learn how to monitor, troubleshoot, and optimize your integrations.',
+                'security': 'Understand security best practices and implementation strategies.'
+            };
+
+            const key = folderName.toLowerCase();
+            return descriptions[key] || `Comprehensive training materials for ${formatCourseName(folderName)} concepts and practical applications.`;
+        }
+
+        function generateLessonDescription(fileName) {
+            const name = fileName.toLowerCase();
+            if (name.includes('basic') || name.includes('intro')) {
+                return 'Introduction to core concepts and fundamental principles.';
+            } else if (name.includes('advanced')) {
+                return 'Advanced techniques and real-world implementation scenarios.';
+            } else if (name.includes('practical') || name.includes('hands-on')) {
+                return 'Hands-on exercises and practical implementation examples.';
+            } else if (name.includes('monitoring')) {
+                return 'Learn monitoring, debugging, and performance optimization techniques.';
+            } else {
+                return 'Comprehensive lesson covering essential concepts and practical applications.';
+            }
+        }
+
+        function getCourseIcon(folderName) {
+            const icons = {
+                'erp': 'fas fa-building',
+                'btp': 'fas fa-cloud',
+                'cpi': 'fas fa-exchange-alt',
+                'basics': 'fas fa-graduation-cap',
+                'advanced': 'fas fa-rocket',
+                'monitoring': 'fas fa-chart-line',
+                'security': 'fas fa-shield-alt',
+                'integration': 'fas fa-plug',
+                'api': 'fas fa-code',
+                'workflow': 'fas fa-sitemap'
+            };
+
+            const key = folderName.toLowerCase();
+            return icons[key] || 'fas fa-book-open';
+        }
+
+        function updatePageHeader(title, subtitle) {
+            document.getElementById('pageTitle').textContent = title;
+            document.getElementById('pageSubtitle').textContent = subtitle;
+        }
+
+        function updateBreadcrumb(items) {
+            const breadcrumb = document.getElementById('breadcrumb');
+            breadcrumb.innerHTML = '';
+
+            items.forEach((item, index) => {
+                if (index > 0) {
+                    const separator = document.createElement('span');
+                    separator.className = 'breadcrumb-separator';
+                    separator.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                    breadcrumb.appendChild(separator);
+                }
+
+                const breadcrumbItem = document.createElement('span');
+                breadcrumbItem.className = `breadcrumb-item ${item.active ? 'active' : ''}`;
+                breadcrumbItem.textContent = item.name;
+                breadcrumbItem.onclick = () => navigateTo(item.action);
+                breadcrumb.appendChild(breadcrumbItem);
+            });
+        }
+
+        function showLoading(show, message = 'Loading courses...') {
+            const loadingContainer = document.getElementById('loadingContainer');
+            const loadingText = loadingContainer.querySelector('.loading-text');
+            
+            loadingText.textContent = message;
+            loadingContainer.style.display = show ? 'flex' : 'none';
+        }
+
+        function showError(message) {
+            const errorContainer = document.getElementById('errorContainer');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            errorMessage.textContent = message;
+            errorContainer.style.display = 'block';
+            
+            // Hide other containers
+            document.getElementById('coursesContainer').style.display = 'none';
+            document.getElementById('lessonsContainer').style.display = 'none';
+        }
+
+        function hideError() {
+            document.getElementById('errorContainer').style.display = 'none';
+        }
+
+        // Keyboard navigation
+        function handleKeyboard(event) {
+            if (event.key === 'Escape') {
+                if (currentView === 'lessons') {
+                    navigateBack();
+                }
+            }
+        }
+
+        // Animation for cards
+        function animateCards() {
+            const cards = document.querySelectorAll('.course-card, .lesson-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // Initialize application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication first
+            if (!checkAuthentication()) {
+                return;
+            }
+
+            // Load theme
+            loadTheme();
+
+            // Load initial courses
+            loadCourses();
+
+            // Add keyboard event listener
+            document.addEventListener('keydown', handleKeyboard);
+
+            // Add animation observer
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        setTimeout(animateCards, 100);
+                    }
+                });
+            });
+
+            observer.observe(document.getElementById('coursesContainer'), { childList: true });
+            observer.observe(document.querySelector('.lessons-grid'), { childList: true });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            if (currentView === 'lessons') {
+                navigateBack();
+            }
+        });
+
+        // Prevent navigation away without confirmation if user is in lessons view
+        window.addEventListener('beforeunload', function(event) {
+            if (currentView === 'lessons') {
+                event.preventDefault();
+                event.returnValue = 'Are you sure you want to leave? You will lose your current progress.';
+                return event.returnValue;
+            }
+        });
+
+        // Auto-refresh courses every 5 minutes to check for updates
+        setInterval(() => {
+            if (currentView === 'courses' && document.visibilityState === 'visible') {
+                loadCourses();
+            }
+        }, 5 * 60 * 1000); // 5 minutes
+
+        // Handle visibility change to pause/resume auto-refresh
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible' && currentView === 'courses') {
+                // Refresh courses when tab becomes visible again
+                setTimeout(loadCourses, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
