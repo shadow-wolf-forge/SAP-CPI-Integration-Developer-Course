@@ -727,6 +727,8 @@
         async function fetchRepositoryContents(path = '') {
             try {
                 const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`;
+                console.log('Fetching from URL:', url);
+                
                 const response = await fetch(url, {
                     headers: {
                         'Authorization': `token ${githubPat}`,
@@ -735,10 +737,14 @@
                 });
 
                 if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('API Response Error:', response.status, response.statusText, errorText);
                     throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
 
-                return await response.json();
+                const data = await response.json();
+                console.log('API Response data:', data);
+                return data;
             } catch (error) {
                 console.error('Error fetching repository contents:', error);
                 throw error;
@@ -779,24 +785,40 @@
 
             try {
                 const coursePath = `${coursesPath}/${courseName}`;
+                console.log('Loading lessons from path:', coursePath);
+                
                 const contents = await fetchRepositoryContents(coursePath);
-                const htmlFiles = contents.filter(item => 
-                    item.type === 'file' && item.name.toLowerCase().endsWith('.html')
-                );
+                console.log('Contents found:', contents);
+                
+                // Look for folders (not HTML files) - each lesson has its own folder
+                const lessonFolders = contents.filter(item => {
+                    console.log('Checking item:', item.name, 'Type:', item.type);
+                    return item.type === 'dir';
+                });
+                
+                console.log('Lesson folders found:', lessonFolders);
 
-                const lessons = htmlFiles.map(file => ({
-                    name: file.name,
-                    path: file.path,
-                    displayName: formatLessonName(file.name),
-                    description: generateLessonDescription(file.name)
+                if (lessonFolders.length === 0) {
+                    console.warn('No lesson folders found in', coursePath);
+                    showError(`No lesson folders found in ${courseName}. Please check if the course contains lesson folders.`);
+                    return;
+                }
+
+                const lessons = lessonFolders.map(folder => ({
+                    name: folder.name,
+                    path: folder.path,
+                    displayName: formatLessonName(folder.name),
+                    description: generateLessonDescription(folder.name),
+                    folderName: folder.name // Store folder name for path construction
                 }));
 
+                console.log('Processed lessons:', lessons);
                 currentCourse = courseName;
                 displayLessons(lessons);
                 
             } catch (error) {
                 console.error('Failed to load lessons:', error);
-                showError('Failed to load lessons for this course. Please try again.');
+                showError(`Failed to load lessons for ${courseName}. Error: ${error.message}`);
             } finally {
                 showLoading(false);
             }
@@ -839,12 +861,32 @@
                 { name: courseName, active: true, action: 'course' }
             ]);
 
-            lessons.forEach(lesson => {
+            console.log('Displaying lessons:', lessons);
+
+            if (lessons.length === 0) {
+                // Show empty state
+                lessonsGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <i class="fas fa-folder-open" style="font-size: 4rem; color: var(--text-secondary); margin-bottom: 1rem;"></i>
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem;">No Lessons Found</h3>
+                        <p style="color: var(--text-secondary);">This course doesn't have any lesson folders yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            lessons.forEach((lesson, index) => {
+                console.log(`Creating lesson card ${index + 1}:`, lesson);
                 const lessonCard = createLessonCard(lesson);
                 lessonsGrid.appendChild(lessonCard);
             });
 
             currentView = 'lessons';
+            
+            // Animate cards after a short delay
+            setTimeout(() => {
+                animateCards();
+            }, 100);
         }
 
         // Card creation functions
@@ -924,11 +966,11 @@
         }
 
         function openLesson(lesson) {
-            // Navigate to relative file path from root - course_home_page.html is outside Courses folder
-            const relativePath = `Courses/${currentCourse}/${lesson.name}`;
+            // Navigate to lesson folder structure: Courses/courseName/lessonFolder/lessonFolder.html
+            const relativePath = `Courses/${currentCourse}/${lesson.folderName}/${lesson.folderName}.html`;
             console.log('Navigating to lesson:', relativePath);
             
-            // Direct navigation to the HTML file using relative path from root
+            // Direct navigation to the HTML file inside the lesson folder
             window.location.href = relativePath;
         }
 
@@ -939,9 +981,8 @@
                 .replace(/\b\w/g, l => l.toUpperCase());
         }
 
-        function formatLessonName(fileName) {
-            return fileName
-                .replace('.html', '')
+        function formatLessonName(folderName) {
+            return folderName
                 .replace(/[-_]/g, ' ') // Replace hyphens and underscores with spaces
                 .replace(/\s+/g, ' ') // Replace multiple spaces with single space
                 .trim() // Remove leading/trailing spaces
@@ -963,8 +1004,8 @@
             return descriptions[key] || `Comprehensive training materials for ${formatCourseName(folderName)} concepts and practical applications.`;
         }
 
-        function generateLessonDescription(fileName) {
-            const name = fileName.toLowerCase();
+        function generateLessonDescription(folderName) {
+            const name = folderName.toLowerCase();
             if (name.includes('basic') || name.includes('intro')) {
                 return 'Introduction to core concepts and fundamental principles.';
             } else if (name.includes('advanced')) {
