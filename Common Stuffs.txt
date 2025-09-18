@@ -1,0 +1,31 @@
+<script>
+  // Theme toggle functionality
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update button text
+    const button = document.querySelector('.theme-toggle');
+    button.textContent = newTheme === 'light' ? '🌙 Dark' : '☀️ Light';
+  }
+
+  // Load saved theme on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Set initial button text
+    const button = document.querySelector('.theme-toggle');
+    if (button) {
+      button.textContent = savedTheme === 'light' ? '🌙 Dark' : '☀️ Light';
+    }
+  });
+</script>
+
+<button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+
+	<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
