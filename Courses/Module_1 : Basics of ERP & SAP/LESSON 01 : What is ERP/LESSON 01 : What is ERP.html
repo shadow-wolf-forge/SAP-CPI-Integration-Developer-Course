@@ -1,0 +1,226 @@
+<html>
+
+<head>
+
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Theme toggle functionality
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update button text
+    const button = document.querySelector('.theme-toggle');
+    button.textContent = newTheme === 'light' ? '🌙 Dark' : '☀️ Light';
+  }
+
+  // Load saved theme on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Set initial button text
+    const button = document.querySelector('.theme-toggle');
+    if (button) {
+      button.textContent = savedTheme === 'light' ? '🌙 Dark' : '☀️ Light';
+    }
+  });
+</script>
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+<button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+<div class=WordSection1>
+
+<p class=MsoTitle align=center style='text-align:center'><a name="_j9h24h25bzun"></a><span
+lang=EN>LESSON 01 : What is ERP</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>Hey folks! Welcome to KRD’s SAP CPI Training
+Zone. This lesson covers topics that every CPI consultant should understand at
+a minimum.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>The topics we’re going to learn in this lesson
+are:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>What is an ERP</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>Why businesses use ERP</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>Advantages of ERP in an organization</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>Leading ERP solutions and vendors</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN>Real‑world
+examples of usage of an ERP Tool</span></p>
+
+<h2><a name="_16s0sd2aifrc"></a><span lang=EN>What is an ERP</span></h2>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>An ERP (Enterprise
+Resource Planning) system is a set of connected software modules that manage
+daily activities such as accounting, procurement, inventory, manufacturing,
+sales, HR, and projects in one shared platform. All modules share a single data
+model and database, giving a single source of truth that avoids duplicate
+records and keeps information consistent across the company. Modern ERPs can
+run on premises or in the cloud and often include analytics and automation to
+support better decisions in real time.</span></p>
+
+<h2><a name="_cp6lxfn4q9eh"></a><span lang=EN>Why businesses use ERP</span></h2>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>Businesses use ERP to
+replace many disconnected tools and spreadsheets with one integrated system, so
+everyone works from the same, trusted data. This improves coordination across
+teams, automates routine steps, and cuts manual errors, which helps leaders act
+faster and with confidence. By tying processes together end to end, ERP
+supports common flows like order‑to‑cash and procure‑to‑pay with builtin rules
+and approvals.</span></p>
+
+<h2><a name="_q2hkqhjrhvni"></a><span lang=EN>Advantages of ERP in an
+organization</span></h2>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Single source of truth: one database removes
+duplicate data and keeps information accurate for all departments.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Faster work and automation: built‑in workflows
+automate steps like approvals, billing, and inventory updates.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Better decisions: real‑time dashboards and reports
+turn data into clear insights for action.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Cost control: visibility helps reduce waste,
+optimize stock, and improve resource use.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Strong compliance and audit: access controls, logs,
+and standard reports support regulations and audits.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Improved customer service: accurate orders, on‑time
+delivery, and quick status updates boost satisfaction.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Scales with growth: add modules, users, and sites
+without changing core systems.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>8.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Cloud benefits: regular updates, lower IT load, and strong security
+when using SaaS ERP.</span></p>
+
+<h2><a name="_a5n11bl5vu6a"></a><span lang=EN>Leading ERP solutions and vendors</span></h2>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>SAP: S/4HANA (large enterprise), Business One
+(SMB), Business ByDesign (midmarket).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> Oracle: Oracle ERP Cloud; NetSuite for
+SMB/midmarket cloud ERP.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> Microsoft: Dynamics 365 Finance, Supply Chain
+Management, and Business Central.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> Infor: CloudSuite industry suites (manufacturing,
+distribution, services).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> Sage: Intacct (financefirst) and X3 (midmarket).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> Epicor: Kinetic for manufacturing and
+distribution.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> IFS: IFS Cloud for asset‑intensive, service, and
+project businesses.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> Workday: Strong in finance and HCM for service
+industries.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN> Acumatica: Cloud ERP for growing midmarket
+companies.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN> Odoo: Modular, open‑source ERP popular with smaller firms.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<h2><a name="_vocug0vzeg4d"></a><span lang=EN>Real‑world examples</span></h2>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN>Retail order‑to‑cash:</span></b><span lang=EN> a
+customer creates a sales order, stock is checked, items are picked and shipped,
+an invoice is sent, payment is posted, and accounts update automatically for a
+complete view in reports.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN>Procurement (procure‑to‑pay):</span></b><span
+lang=EN> purchasing sets a reorder point, ERP autocreates a purchase order when
+stock is low, goods are received into inventory, supplier invoice is matched,
+and payment is approved and recorded.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN>Manufacturing build: </span></b><span lang=EN>planned
+orders reserve materials, production is scheduled, shop floor updates progress
+in real time, finished goods increase stock, and costs roll into the general
+ledger.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN>HR onboarding:</span></b><span lang=EN> HR enters a new hire once,
+which sets up payroll, role‑based access, and time/leave tracking, keeping
+employee data consistent across modules.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
