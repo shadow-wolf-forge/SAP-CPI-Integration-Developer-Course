@@ -1146,7 +1146,7 @@
             }
         });
 
-        // Prevent navigation away without confirmation if user is in lessons view
+        /* Prevent navigation away without confirmation if user is in lessons view
         window.addEventListener('beforeunload', function(event) {
             if (currentView === 'lessons') {
                 event.preventDefault();
@@ -1154,7 +1154,7 @@
                 return event.returnValue;
             }
         });
-
+*/
         // Auto-refresh courses every 5 minutes to check for updates
         setInterval(() => {
             if (currentView === 'courses' && document.visibilityState === 'visible') {
