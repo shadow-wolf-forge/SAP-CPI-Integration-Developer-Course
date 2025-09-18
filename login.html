@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - SAP CPI Integration Developer Course</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
+	<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary-color: #0070f3;
             --secondary-color: #ff6b35;
@@ -29,7 +29,6 @@
             --glass-bg: rgba(255, 255, 255, 0.25);
             --glass-border: rgba(255, 255, 255, 0.18);
         }
-
         [data-theme="dark"] {
             --bg-color: #0f172a;
             --surface-color: #1e293b;
@@ -40,7 +39,6 @@
             --glass-bg: rgba(30, 41, 59, 0.4);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-color);
@@ -50,7 +48,6 @@
             min-height: 100vh;
             position: relative;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -63,7 +60,6 @@
                         radial-gradient(circle at 40% 40%, #f093fb15 0%, transparent 50%);
             z-index: -2;
         }
-
         .animated-bg {
             position: fixed;
             top: 0;
@@ -73,13 +69,11 @@
             z-index: -1;
             overflow: hidden;
         }
-
         .floating-shape {
             position: absolute;
             opacity: 0.1;
             animation: floatAround 20s infinite linear;
         }
-
         .floating-shape:nth-child(1) {
             top: 10%;
             left: 10%;
@@ -89,7 +83,6 @@
             border-radius: 50%;
             animation-delay: 0s;
         }
-
         .floating-shape:nth-child(2) {
             top: 70%;
             right: 10%;
@@ -99,7 +92,6 @@
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             animation-delay: -5s;
         }
-
         .floating-shape:nth-child(3) {
             top: 30%;
             left: 70%;
@@ -109,7 +101,6 @@
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             animation-delay: -10s;
         }
-
         @keyframes floatAround {
             0% { transform: translate(0, 0) rotate(0deg); }
             25% { transform: translate(100px, -50px) rotate(90deg); }
@@ -117,7 +108,6 @@
             75% { transform: translate(-100px, 50px) rotate(270deg); }
             100% { transform: translate(0, 0) rotate(360deg); }
         }
-
         .navbar {
             position: fixed;
             top: 0;
@@ -129,11 +119,9 @@
             transition: all 0.3s ease;
             padding: 1rem 0;
         }
-
         [data-theme="dark"] .navbar {
             background: rgba(15, 23, 42, 0.9);
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -142,7 +130,6 @@
             align-items: center;
             padding: 0 2rem;
         }
-
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -152,13 +139,11 @@
             background-clip: text;
             text-decoration: none;
         }
-
         .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
-
         .theme-toggle {
             background: none;
             border: 2px solid var(--border-color);
@@ -169,12 +154,10 @@
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
-
         .theme-toggle:hover {
             border-color: var(--primary-color);
             transform: scale(1.05);
         }
-
         .back-btn {
             background: transparent;
             color: var(--text-primary);
@@ -189,12 +172,10 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .back-btn:hover {
             border-color: var(--primary-color);
             transform: translateY(-2px);
         }
-
         .login-container {
             min-height: 100vh;
             display: flex;
@@ -202,7 +183,6 @@
             justify-content: center;
             padding: 2rem;
         }
-
         .login-box {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -216,7 +196,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .login-box::before {
             content: '';
             position: absolute;
@@ -227,12 +206,10 @@
             background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
             opacity: 0.8;
         }
-
         .login-header {
             text-align: center;
             margin-bottom: 2.5rem;
         }
-
         .login-header h1 {
             font-size: 2.5rem;
             font-weight: 800;
@@ -242,17 +219,14 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .login-header p {
             color: var(--text-secondary);
             font-size: 1.1rem;
         }
-
         .form-group {
             margin-bottom: 2rem;
             position: relative;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 0.75rem;
@@ -260,11 +234,9 @@
             color: var(--text-primary);
             font-size: 0.95rem;
         }
-
         .input-wrapper {
             position: relative;
         }
-
         .form-group input {
             width: 100%;
             padding: 1.25rem 1.25rem 1.25rem 3rem;
@@ -276,14 +248,12 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
-
         .form-group input:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 4px rgba(0, 112, 243, 0.1);
             transform: translateY(-2px);
         }
-
         .input-icon {
             position: absolute;
             left: 1rem;
@@ -293,11 +263,9 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
         }
-
         .form-group input:focus + .input-icon {
             color: var(--primary-color);
         }
-
         .password-toggle {
             position: absolute;
             right: 1rem;
@@ -310,11 +278,9 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
         }
-
         .password-toggle:hover {
             color: var(--primary-color);
         }
-
         .login-btn {
             width: 100%;
             background: var(--gradient-primary);
@@ -330,17 +296,14 @@
             position: relative;
             overflow: hidden;
         }
-
         .login-btn:hover:not(:disabled) {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
         }
-
         .login-btn:disabled {
             opacity: 0.7;
             cursor: not-allowed;
         }
-
         .login-btn .spinner {
             display: none;
             width: 20px;
@@ -351,15 +314,12 @@
             animation: spin 0.8s ease infinite;
             margin-right: 0.5rem;
         }
-
         .login-btn.loading .spinner {
             display: inline-block;
         }
-
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
         .error-message {
             background: rgba(255, 71, 87, 0.1);
             border: 1px solid rgba(255, 71, 87, 0.3);
@@ -371,17 +331,14 @@
             display: none;
             animation: shake 0.5s ease-in-out;
         }
-
         .error-message.show {
             display: block;
         }
-
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
-
         .success-message {
             background: rgba(0, 208, 132, 0.1);
             border: 1px solid rgba(0, 208, 132, 0.3);
@@ -392,44 +349,36 @@
             font-size: 0.9rem;
             display: none;
         }
-
         .success-message.show {
             display: block;
         }
-
         .login-footer {
             text-align: center;
             padding-top: 1.5rem;
             border-top: 1px solid var(--glass-border);
         }
-
         .login-footer p {
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.5;
         }
-
         .login-footer a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
         }
-
         .login-footer a:hover {
             text-decoration: underline;
         }
-
         @media (max-width: 768px) {
             .nav-links .back-btn {
                 display: none;
             }
-
             .login-box {
                 margin: 1rem;
                 padding: 2rem 1.5rem;
             }
-
             .login-header h1 {
                 font-size: 2rem;
             }
@@ -442,7 +391,6 @@
         <div class="floating-shape"></div>
         <div class="floating-shape"></div>
     </div>
-
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">KRD's SAP CPI Training Zone</a>
@@ -457,18 +405,15 @@
             </div>
         </div>
     </nav>
-
     <div class="login-container">
         <div class="login-box">
             <div class="login-header">
                 <h1>Welcome Back</h1>
                 <p>Access your SAP CPI course materials</p>
             </div>
-
             <form id="loginForm">
                 <div class="error-message" id="errorMessage"></div>
                 <div class="success-message" id="successMessage"></div>
-
                 <div class="form-group">
                     <label for="username">Username</label>
                     <div class="input-wrapper">
@@ -476,7 +421,6 @@
                         <i class="fas fa-user input-icon"></i>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="input-wrapper">
@@ -487,19 +431,16 @@
                         </button>
                     </div>
                 </div>
-
                 <button type="submit" class="login-btn" id="loginBtn">
                     <div class="spinner"></div>
                     Sign In
                 </button>
             </form>
-
             <div class="login-footer">
                 <p>Don't have access? <a href="mailto:karthikramadurai.ci@gmail.com">Contact the author</a></p>
             </div>
         </div>
     </div>
-
     <script>
         // Split PAT for security
         const patParts = [
@@ -510,11 +451,11 @@
             'Sq7PYRYIGQJvu9lCZJ2'
         ];
         const githubPat = patParts.join('');
-
+        
         // GitHub repository details
         const repoOwner = 'shadow-wolf-forge';
         const repoName = 'SAP-CPI-Integration-Developer-Course';
-
+        
         // Theme functionality
         function toggleTheme() {
             const body = document.body;
@@ -530,7 +471,7 @@
                 localStorage.setItem('theme', 'dark');
             }
         }
-
+        
         function loadTheme() {
             const savedTheme = localStorage.getItem('theme');
             const themeIcon = document.getElementById('theme-icon');
@@ -540,7 +481,7 @@
                 themeIcon.className = 'fas fa-sun';
             }
         }
-
+        
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const toggleIcon = document.getElementById('password-toggle-icon');
@@ -553,7 +494,7 @@
                 toggleIcon.className = 'fas fa-eye';
             }
         }
-
+        
         function showError(message) {
             const errorDiv = document.getElementById('errorMessage');
             const successDiv = document.getElementById('successMessage');
@@ -566,7 +507,7 @@
                 errorDiv.classList.remove('show');
             }, 5000);
         }
-
+        
         function showSuccess(message) {
             const errorDiv = document.getElementById('errorMessage');
             const successDiv = document.getElementById('successMessage');
@@ -575,7 +516,7 @@
             successDiv.textContent = message;
             successDiv.classList.add('show');
         }
-
+        
         function setLoading(loading) {
             const loginBtn = document.getElementById('loginBtn');
             const usernameInput = document.getElementById('username');
@@ -593,110 +534,85 @@
                 passwordInput.disabled = false;
             }
         }
-
-        async function checkGitHubSecret(secretName) {
+        
+        async function getGitHubVariableValue(variableName) {
             try {
-                const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/actions/secrets/${secretName}`, {
+                const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/actions/variables/${variableName}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `token ${githubPat}`,
-                        'Accept': 'application/vnd.github.v3+json',
+                        'Accept': 'application/vnd.github+json',
                         'User-Agent': 'SAP-CPI-Course-Login'
                     }
                 });
-
+                
                 if (response.status === 200) {
                     const data = await response.json();
-                    return { exists: true, data: data };
+                    return data.value;  // The variable's value (the password)
                 } else if (response.status === 404) {
-                    return { exists: false };
+                    throw new Error('Invalid username. Please check your credentials.');
                 } else {
                     console.error('GitHub API Error:', response.status, await response.text());
-                    throw new Error(`Failed to verify credentials. Status: ${response.status}`);
+                    throw new Error('Failed to verify credentials. Please try again.');
                 }
             } catch (error) {
-                console.error('Error checking secret:', error);
+                console.error('Error fetching variable:', error);
                 if (error.message.includes('Failed to fetch')) {
                     throw new Error('Network error. Please check your internet connection.');
                 }
-                throw new Error('Failed to verify credentials. Please try again.');
+                throw error;
             }
         }
-
-        // Simulate password validation since we can't read secret values
-        async function validatePassword(username, password) {
-            // In a real scenario, you might want to implement a different approach
-            // since GitHub API doesn't allow reading secret values directly
-            // For now, we'll assume the secret exists and do a basic validation
-            
-            // You could potentially use a webhook or GitHub Action to validate credentials
-            // For this example, we'll proceed if the secret exists
-            const secretCheck = await checkGitHubSecret(username);
-            
-            if (!secretCheck.exists) {
-                throw new Error('Username not found. Please check your credentials.');
-            }
-
-            // Since we can't read the actual secret value, we'll simulate validation
-            // In a real implementation, you might want to use a different approach
-            // such as a server-side validation or a different authentication method
-            
-            return true;
-        }
-
+        
         async function handleLogin(event) {
             event.preventDefault();
             
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
-
+            
             if (!username || !password) {
                 showError('Please fill in all fields.');
                 return;
             }
-
+            
             setLoading(true);
-
+            
             try {
-                // Check if the secret (username) exists
-                const secretExists = await checkGitHubSecret(username);
+                // Fetch stored password from GitHub variables
+                const storedPassword = await getGitHubVariableValue(username);
                 
-                if (!secretExists.exists) {
-                    throw new Error('Invalid username. Please check your credentials.');
+                // Compare entered password to stored password value from GitHub variable
+                if (password === storedPassword) {
+                    showSuccess('Login successful! Redirecting...');
+                    
+                    // Store login session
+                    sessionStorage.setItem('authenticated', 'true');
+                    sessionStorage.setItem('username', username);
+                    
+                    // Redirect after a short delay
+                    setTimeout(() => {
+                        window.location.href = 'course_home_page.html';
+                    }, 1500);
+                } else {
+                    throw new Error('Invalid password. Please try again.');
                 }
-
-                // Since GitHub API doesn't allow reading secret values directly,
-                // we'll proceed with a simplified validation
-                // In a production environment, you'd implement server-side validation
-                
-                showSuccess('Login successful! Redirecting...');
-                
-                // Store login session
-                sessionStorage.setItem('authenticated', 'true');
-                sessionStorage.setItem('username', username);
-                
-                // Redirect after a short delay
-                setTimeout(() => {
-                    window.location.href = 'course_home_page.html';
-                }, 1500);
-
             } catch (error) {
                 showError(error.message || 'Login failed. Please try again.');
             } finally {
                 setLoading(false);
             }
         }
-
+        
         // Event listeners
         document.addEventListener('DOMContentLoaded', function() {
             loadTheme();
             
             const loginForm = document.getElementById('loginForm');
             loginForm.addEventListener('submit', handleLogin);
-
+            
             // Focus first input
             document.getElementById('username').focus();
-
+            
             // Enter key handling
             document.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter' && !document.getElementById('loginBtn').disabled) {
@@ -704,7 +620,7 @@
                 }
             });
         });
-
+        
         // Prevent back button after authentication
         window.addEventListener('pageshow', function(event) {
             if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
