@@ -2,12 +2,20 @@
 
 <head>
 <title>LESSON 2 : What is SAP & SAP’s ERP</title>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
-  <link rel="stylesheet" href="sytes.css">
-
-<button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button
+<link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
 <script>
   // Theme toggle functionality
+  document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        // Prevent Ctrl+P (print)
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'p') {
+                event.preventDefault();
+            }
+        });
   function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -18,7 +26,7 @@
     
     // Update button text
     const button = document.querySelector('.theme-toggle');
-    button.textContent = newTheme === 'light' ? '🌙 ' : '☀️ ';
+    button.textContent = newTheme === 'light' ? '🌙 Dark' : '☀️ Light';
   }
 
   // Load saved theme on page load
@@ -29,26 +37,19 @@
     // Set initial button text
     const button = document.querySelector('.theme-toggle');
     if (button) {
-      button.textContent = savedTheme === 'light' ? '🌙 ' : '☀️ ';
+      button.textContent = savedTheme === 'light' ? '🌙 Dark' : '☀️ Light';
     }
   });
-
-document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
-
-        // Prevent Ctrl+P (print)
-        document.addEventListener('keydown', function(event) {
-            if (event.ctrlKey && event.key === 'p') {
-                event.preventDefault();
-            }
-        });
 </script>
+</head>
+
+
+
 
 </head>
 
 <body lang=EN-US style='word-wrap:break-word'>
-
+<button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
 <div class=WordSection1>
 
 <p class=MsoTitle align=center style='text-align:center'><a name="_y451yqcgy951"></a><span
