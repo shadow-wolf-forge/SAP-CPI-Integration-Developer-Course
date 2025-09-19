@@ -1,0 +1,338 @@
+/* ===============================
+   Word sanitizer + Dual theme (Light/Dark)
+   Forces external CSS over Word HTML
+   =============================== */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Theme tokens - Default (Dark Mode) */
+:root {
+  --bg-primary: #0a0f1e;
+  --bg-secondary: #0f172a;
+  --surface: rgba(255,255,255,0.05);
+  --surface-strong: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.12);
+  --border-strong: rgba(255,255,255,0.2);
+  --text-primary: #e7edf7;
+  --text-secondary: #b8c4d6;
+  --text-muted: #7e8aa3;
+  --accent: #3b82f6;
+  --accent-strong: #2563eb;
+  --accent-cyan: #22d3ee;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-2: 0 8px 28px rgba(0,0,0,0.45);
+
+  --h1: clamp(28px, 4vw, 40px);
+  --h2: clamp(22px, 3vw, 30px);
+  --h3: clamp(18px, 2.2vw, 24px);
+  --h4: clamp(16px, 2vw, 20px);
+  --body: 16px;
+  --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Light Mode Theme */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --surface: rgba(0,0,0,0.02);
+  --surface-strong: rgba(0,0,0,0.04);
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.15);
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #3b82f6;
+  --accent-strong: #2563eb;
+  --accent-cyan: #0891b2;
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.1);
+  --shadow-2: 0 8px 28px rgba(0,0,0,0.12);
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+@media print {
+            html, body {
+                display: none;  /* Hide the entire page from being printed */
+            }
+        }
+.theme-toggle:hover {
+  background: var(--surface-strong);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+/* Base reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* Background + type */
+html, body {
+  background:
+    radial-gradient(1100px 700px at 85% -10%, rgba(37,99,235,0.14), transparent 60%),
+    radial-gradient(900px 600px at -10% 25%, rgba(34,211,238,0.12), transparent 55%),
+    var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  font-size: var(--body);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode background override */
+[data-theme="light"] body {
+  background:
+    radial-gradient(1100px 700px at 85% -10%, rgba(37,99,235,0.04), transparent 60%),
+    radial-gradient(900px 600px at -10% 25%, rgba(34,211,238,0.03), transparent 55%),
+    var(--bg-primary);
+}
+
+/* Layout with proper spacing */
+body {
+  margin: 0;
+  padding: 24px;
+}
+
+.container, main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Responsive padding for larger screens */
+@media (min-width: 768px) {
+  body {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    padding: 40px;
+  }
+}
+
+.section {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  padding: 24px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Light mode section override */
+[data-theme="light"] .section {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+}
+
+/* -------------------------------
+   1) Neutralize Word/Convert styles
+   ------------------------------- */
+
+/* Clear MSO classes to remove Word defaults */
+[class^="Mso"], [class*=" Mso"] { all: unset; display: revert; }
+
+/* Defang inline styles that fight the theme */
+[style*="font-family"], [style*="font-size"], [style*="color"], [style*="line-height"], [style*="background"] {
+  font: inherit !important;
+  color: inherit !important;
+  line-height: inherit !important;
+  background: transparent !important;
+}
+
+/* Word often positions shapes/images absolutely – force normal flow */
+span[style*="position:absolute"], div[style*="position:absolute"] {
+  position: static !important;
+  left: auto !important; top: auto !important; right: auto !important; bottom: auto !important;
+  margin: 0 !important;
+  width: auto !important; height: auto !important;
+}
+
+/* Word's page sections/margins */
+div[style*="margin:1.0in"], div[style*="mso-"] { margin: 0 !important; }
+
+/* Align/spacing attributes from old HTML exports */
+img[align], table[align] { float: none !important; margin: 1rem auto !important; }
+
+/* Remove underlines that Word adds inline */
+u { text-decoration: none; }
+
+/* -------------------------------
+   2) Map content to site look
+   ------------------------------- */
+
+h1, h2, h3, h4 {
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-wrap: balance;
+  transition: color 0.3s ease;
+}
+h1 { font-size: var(--h1); }
+h2 { font-size: var(--h2); color: #cfe7ff; }
+h3 { font-size: var(--h3); color: #b9d6ff; font-weight: 600; }
+h4 { font-size: var(--h4); color: var(--text-secondary); font-weight: 600; }
+
+/* Light mode heading colors */
+[data-theme="light"] h2 { color: #1e40af; }
+[data-theme="light"] h3 { color: #2563eb; }
+
+/* Word exports often use p.MsoTitle and p.MsoNormal */
+p.MsoTitle {
+  all: unset;
+  display: block;
+  font-weight: 800;
+  font-size: var(--h1);
+  text-align: center;
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+p, p.MsoNormal {
+  all: unset;
+  display: block;
+  margin: 10px 0 14px;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* Links */
+a { color: var(--accent); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--accent-cyan); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Lists */
+ul, ol { margin: .5rem 0 1rem 1.25rem; color: var(--text-secondary); }
+li + li { margin-top: .35rem; }
+p[style*="text-indent"] { margin-left: 1.25rem; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] table {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+th {
+  background: rgba(255,255,255,0.06);
+  color: #dbe9ff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] th {
+  background: rgba(0,0,0,0.04);
+  color: var(--text-primary);
+}
+
+tr:hover td { background: rgba(255,255,255,0.04); transition: background 0.2s ease; }
+
+[data-theme="light"] tr:hover td { background: rgba(0,0,0,0.02); }
+
+/* Images and code */
+img { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+
+code, pre {
+  font-family: var(--mono);
+  background: #0b1327;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #d6e2ff;
+  border-radius: 10px;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] code,
+[data-theme="light"] pre {
+  background: #f1f5f9;
+  border-color: rgba(0,0,0,0.08);
+  color: #334155;
+}
+
+code { padding: 2px 6px; }
+pre { padding: 12px 14px; overflow: auto; }
+
+/* Forms */
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: rgba(37,99,235,0.55);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] select:focus,
+[data-theme="light"] textarea:focus {
+  background: rgba(0,0,0,0.02);
+}
+
+/* Utility */
+.muted { color: var(--text-muted); }
+.center { text-align: center; }
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  padding: 16px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .card {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+}
+
