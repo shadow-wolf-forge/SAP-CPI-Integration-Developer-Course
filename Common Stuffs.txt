@@ -24,8 +24,25 @@
       button.textContent = savedTheme === 'light' ? '🌙 Dark' : '☀️ Light';
     }
   });
+
+document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        // Prevent Ctrl+P (print)
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'p') {
+                event.preventDefault();
+            }
+        });
 </script>
 
 <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
 
 	<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
+
+@media print {
+            html, body {
+                display: none;  /* Hide the entire page from being printed */
+            }
+        }
