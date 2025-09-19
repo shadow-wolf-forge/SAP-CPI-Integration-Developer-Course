@@ -6,6 +6,16 @@
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
 <script>
   // Theme toggle functionality
+  document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        // Prevent Ctrl+P (print)
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'p') {
+                event.preventDefault();
+            }
+        });
   function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
