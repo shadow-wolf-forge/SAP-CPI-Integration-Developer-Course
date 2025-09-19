@@ -72,7 +72,11 @@
   font-family: var(--sans);
   font-size: 14px;
 }
-
+@media print {
+            html, body {
+                display: none;  /* Hide the entire page from being printed */
+            }
+        }
 .theme-toggle:hover {
   background: var(--surface-strong);
   border-color: var(--border-strong);
@@ -331,3 +335,4 @@ input:focus, select:focus, textarea:focus {
 [data-theme="light"] .card {
   background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
 }
+
