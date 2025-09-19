@@ -1,0 +1,447 @@
+<html>
+
+<head>
+<title>LESSON 2 : What is SAP & SAP’s ERP</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/shadow-wolf-forge/SAP-CPI-Integration-Developer-Course/refs/heads/main/logo.png" />
+
+<script>
+  // Theme toggle functionality
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update button text
+    const button = document.querySelector('.theme-toggle');
+    button.textContent = newTheme === 'light' ? '🌙 ' : '☀️ ';
+  }
+
+  // Load saved theme on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Set initial button text
+    const button = document.querySelector('.theme-toggle');
+    if (button) {
+      button.textContent = savedTheme === 'light' ? '🌙 ' : '☀️ ';
+    }
+  });
+
+document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        // Prevent Ctrl+P (print)
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'p') {
+                event.preventDefault();
+            }
+        });
+</script>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoTitle align=center style='text-align:center'><a name="_y451yqcgy951"></a><span
+lang=EN>LESSON 2 : What is SAP &amp; SAP’s ERP</span></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><b><span lang=EN>Hey Folks! Welcome to the next
+chapter!</span></b></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><span lang=EN>I hope you’ve already gained a solid
+understanding of ERP and its real-world applications from the previous lesson.
+Now, let’s dive into our main concept!</span></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><span lang=EN>In this lesson, you’ll learn the complete
+basics of SAP and its ERP system.</span></p>
+
+<p class=MsoNormal><span lang=EN>The topics we’re going to cover today are: </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>What is SAP?</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>SAP ERP and its Version History</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>SAP R/3 and its Architecture</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>IDES R/3</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>SAP ECC Overview</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>SAP ECC Core Operations</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>SAP S/4 HANA Introduction</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>SAP S/4 HANA Core Operations</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>Architecture Comparison: ECC vs S/4 HANA</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>Key Differences: ECC vs S/4 HANA</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>SAP ERP Modules Overview</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>Module Interconnections</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span></span><span lang=EN>On-Premise vs Cloud Applications</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>➔<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN>Deployment
+Model Differences</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN>&nbsp;</span></p>
+
+<h2><a name="_budjz9yhmd49"></a><span lang=EN>What is SAP</span></h2>
+
+<p class=MsoNormal><span lang=EN>          SAP stands for Systems,
+Applications, and Products in Data Processing</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>Think of SAP as a
+giant digital brain that helps big companies manage all their business
+activities in one place.</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>Imagine you run a
+large store. You need to:</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>•        Keep track
+of what products you have</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>•        Manage your
+money and payments</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>•        Handle
+employee information</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>•        Process
+customer orders</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>•        Plan what to
+buy next</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>Instead of using
+separate notebooks or systems for each task, SAP combines everything into one
+powerful system. It's like having one master control room that connects all
+parts of your business</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>&nbsp;</span></p>
+
+<h3><a name="_au0e1whzy91s"></a><span lang=EN>Key Features of SAP</span></h3>
+
+<p class=MsoNormal><span lang=EN>•        Integration: All business parts work
+together seamlessly</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Real-time data: Information updates
+instantly across all departments</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Standardization: Same processes used
+everywhere in the company</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Global reach: Used by companies
+worldwide</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Scalability: Grows with your business
+needs</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<h2><a name="_6kt2xvx25muh"></a><span lang=EN>What is SAP ERP</span></h2>
+
+<p class=MsoNormal><span lang=EN>          As we’ve already discussed what ERP
+is, its usage, and the organizations that provide ERP tools, it’s worth noting
+that SAP’s ERP stands out as the most popular due to its rich functionality and
+widespread adoption.</span></p>
+
+<p class=MsoNormal><span lang=EN>SAP ERP is the main software that connects all
+business departments:</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Finance and Accounting</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Human Resources</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Manufacturing</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Sales and Marketing</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Supply Chain Management</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<h3><a name="_4gi6wfp8cx0f"></a><span lang=EN>Complete Version History of SAP’s
+ERP</span></h3>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN>This section isn’t
+meant for memorization; it’s intended to help you understand and appreciate how
+this tool was created and evolved over the years into one of the industry’s
+best solutions.</span></p>
+
+<p class=MsoNormal><span lang=EN>Phase 1: The Beginning (1970s-1980s)</span></p>
+
+<p class=MsoNormal><span lang=EN>•        1972: SAP founded in Germany by five
+engineers</span></p>
+
+<p class=MsoNormal><span lang=EN>•        1973: SAP R/1 released - the first
+version, very basic</span></p>
+
+<p class=MsoNormal><span lang=EN>•        1979: SAP R/2 launched - worked on
+mainframe computers (big, expensive machines)</span></p>
+
+<p class=MsoNormal><span lang=EN>Phase 2: The Revolution (1990s)</span></p>
+
+<p class=MsoNormal><span lang=EN>•        1992: SAP R/3 launched - the game
+changer!</span></p>
+
+<p class=MsoNormal><span lang=EN>•        This was revolutionary because it
+used client-server technology</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Companies could use regular computers
+instead of expensive mainframes</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Introduced the famous 3-tier
+architecture</span></p>
+
+<p class=MsoNormal><span lang=EN>Phase 3: Internet Era (2000s)</span></p>
+
+<p class=MsoNormal><span lang=EN>•        2004: SAP ECC 5.0 (Enterprise Central
+Component)</span></p>
+
+<p class=MsoNormal><span lang=EN>•        2005: SAP ECC 6.0 - most popular
+version for many years</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Added web-based features and better
+user interfaces</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Introduced NetWeaver platform for
+integration</span></p>
+
+<p class=MsoNormal><span lang=EN>Phase 4: Modern Era (2010s-Present)</span></p>
+
+<p class=MsoNormal><span lang=EN>•        2015: SAP S/4 HANA launched - the
+current flagship</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Built for the digital age with
+real-time processing</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Uses in-memory database for
+lightning-fast performance</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Cloud-ready and mobile-friendly</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<h2><a name="_spgp9uuiil63"></a><span lang=EN>SAP R/3 and its Architecture</span></h2>
+
+<p class=MsoNormal><span lang=EN>          Before we dive into the R/3
+architecture, let’s first take a look at R/1 and R/2 for better visibility and
+understanding.</span></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><span lang=EN>Here, you’ll come across three key
+layers: <b>Presentation Layer, Application Layer, and Database Layer</b>. Let’s
+understand each of them in simple terms:</span></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+0in;margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN>Presentation Layer</span></b><span lang=EN>:
+Imagine a customer walks into your shop and makes a purchase. To record this,
+you use a <b>user interface (UI)</b> where you enter the sales details. This
+interface is the presentation layer—it’s where you interact with the system.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN>Application Layer</span></b><span lang=EN>: Once
+the system receives your input, it processes the information. For example, it
+might <b>calculate taxes</b>, update stock levels, or apply business rules
+related to the products. This is the application layer—the brain that processes
+and manages your data.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:12.0pt;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span lang=EN>Database Layer</span></b><span lang=EN>:
+Finally, all the processed information needs to be stored safely for future
+use. This happens in the <b>database layer</b>, which acts as the storage
+system where all your records are maintained</span></p>
+
+<p class=MsoNormal><span lang=EN>Let’s move to the Architecture Concept</span></p>
+
+<p class=MsoNormal><span lang=EN>SAP R/1 Architecture: </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.0in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Introduced in the 1970s (SAP’s very first ERP
+system).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.0in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>“R” stands for Real-time data processing.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.0in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN style='font-family:Cardo'>1-tier architecture →
+Everything (presentation, application, and database) ran on a single
+system/server.</span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Mainly used for financial accounting.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>Limitation: Very basic, lacked flexibility and
+scalability, suitable only for small businesses at that time.</span></p>
+
+<p class=MsoNormal><span lang=EN><img width=624 height=624 id=image1.png
+src="Lesson%202_files/image001.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>SAP R/2 Architecture</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Introduced in the 1980s.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN style='font-family:Cardo'>2-tier architecture →
+Database + Application logic ran on a mainframe system, and presentation was
+through terminals.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN>Supported multiple languages and currencies, making
+it suitable for large enterprises.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span lang=EN>●<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN>Strong in batch processing and transaction handling.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>Limitation: Worked only on mainframe
+computers, not very user-friendly, and lacked the flexibility modern systems
+needed.</span></p>
+
+<p class=MsoNormal><span lang=EN><img width=624 height=624 id=image4.png
+src="Lesson%202_files/image002.jpg"></span></p>
+
+<h3><a name="_c0nc3gbvkpos"></a><span lang=EN>SAP R/3 Architecture</span></h3>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>SAP R/3 was the breakthrough version that made
+SAP famous worldwide. The &quot;R&quot; stands for &quot;Real-time&quot; and
+&quot;3&quot; represents the three-tier architecture.[2]</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>Why R/3 Was Revolutionary</span></p>
+
+<p class=MsoNormal><span lang=EN>Before R/3, business software was:</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Expensive and complex</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Required huge mainframe computers</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Difficult to customize</span></p>
+
+<p class=MsoNormal><span lang=EN>•        Limited to large corporations</span></p>
+
+<p class=MsoNormal><span lang=EN>R/3 changed everything by making enterprise
+software accessible to more businesses.</span></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><span lang=EN>The <b>SAP R/3 architecture</b> can be
+thought of as a three-story building. The first floor is the <b>Presentation
+Layer</b>, where users interact with the system through the SAP GUI—entering
+data, viewing reports, and using forms or menus. The second floor is the <b>Application
+Layer</b>, the brain of the system, which processes business rules,
+calculations, and validations. For example, when a sales order is created, this
+layer checks inventory, calculates prices, and updates records. Finally, the
+third floor is the <b>Database Layer</b>, where all company data—such as
+customer details, product information, and financial records—is securely stored
+using technologies like Oracle or Microsoft SQL Server.</span></p>
+
+<p class=MsoNormal style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+12.0pt;margin-left:0in'><span lang=EN>These layers work together seamlessly:
+the user enters an order, the application layer processes it, the database
+layer saves it, and the confirmation is shown back to the user. This design
+makes the system flexible, scalable, and reliable.</span></p>
+
+<p class=MsoNormal><span lang=EN><br>
+Below diagram will help you to get a picture about How R/3 Architecture works. </span></p>
+
+<p class=MsoNormal><span lang=EN><img width=624 height=624 id=image2.png
+src="Lesson%202_files/image003.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN><img width=624 height=624 id=image3.png
+src="Lesson%202_files/image002.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>After R/1 and R/2, SAP introduced R/3, which
+was a 3-tier client/server architecture (Presentation, Application, Database)
+and became a game-changer in ERP.</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
